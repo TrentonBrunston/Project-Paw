@@ -10,6 +10,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wltfi")
+maxPlayers = 2
 
 [node name="MultiplayerScreen" type="Panel" parent="."]
 layout_mode = 1
@@ -147,6 +148,7 @@ text = "Go Back
 [connection signal="pressed" from="MainContainer/HostBtn" to="." method="_on_host_btn_pressed"]
 [connection signal="pressed" from="MainContainer/JoinBtn" to="." method="_on_join_btn_pressed"]
 [connection signal="pressed" from="HostContainer/BackBtn" to="." method="_on_host_back_btn_pressed"]
+[connection signal="text_changed" from="JoinContainer/PortContainer/EnterPortTextEdit" to="." method="_on_enter_port_text_edit_text_changed"]
 [connection signal="pressed" from="JoinContainer/JoinBtnSuite/JoinBtn" to="." method="_on_join_join_btn_pressed"]
 [connection signal="pressed" from="JoinContainer/JoinBtnSuite/BackBtn" to="." method="_on_join_back_btn_pressed"]
 [connection signal="pressed" from="UpdateContainer/BackBtn" to="." method="_on_update_back_btn_pressed"]
