@@ -81,8 +81,17 @@ horizontal_alignment = 1
 [node name="SpaceBuffer2" type="Label" parent="HostContainer"]
 layout_mode = 2
 
-[node name="BackBtn" type="Button" parent="HostContainer"]
+[node name="HostBtnSuite" type="BoxContainer" parent="HostContainer"]
 layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="HostContainer/HostBtnSuite"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start Game"
+
+[node name="BackBtn" type="Button" parent="HostContainer/HostBtnSuite"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Go Back"
 
 [node name="JoinContainer" type="BoxContainer" parent="."]
@@ -132,7 +141,7 @@ offset_right = 768.0
 offset_bottom = 368.0
 vertical = true
 
-[node name="Label" type="Label" parent="UpdateContainer"]
+[node name="UpdateLabel" type="Label" parent="UpdateContainer"]
 layout_mode = 2
 text = "Joining session..."
 horizontal_alignment = 1
@@ -147,7 +156,7 @@ text = "Go Back
 
 [connection signal="pressed" from="MainContainer/HostBtn" to="." method="_on_host_btn_pressed"]
 [connection signal="pressed" from="MainContainer/JoinBtn" to="." method="_on_join_btn_pressed"]
-[connection signal="pressed" from="HostContainer/BackBtn" to="." method="_on_host_back_btn_pressed"]
+[connection signal="pressed" from="HostContainer/HostBtnSuite/BackBtn" to="." method="_on_host_back_btn_pressed"]
 [connection signal="text_changed" from="JoinContainer/PortContainer/EnterPortTextEdit" to="." method="_on_enter_port_text_edit_text_changed"]
 [connection signal="pressed" from="JoinContainer/JoinBtnSuite/JoinBtn" to="." method="_on_join_join_btn_pressed"]
 [connection signal="pressed" from="JoinContainer/JoinBtnSuite/BackBtn" to="." method="_on_join_back_btn_pressed"]
