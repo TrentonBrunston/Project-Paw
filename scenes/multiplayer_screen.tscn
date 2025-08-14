@@ -1,0 +1,163 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0wqllpflt71m"]
+
+[ext_resource type="Script" path="res://scripts/multiplayer_ui.gd" id="1_wltfi"]
+
+[node name="MultiplayerScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wltfi")
+maxPlayers = 2
+
+[node name="MultiplayerScreen" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MultiplayerTitleText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 36
+text = "Multiplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="MainContainer" type="BoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -60.0
+offset_right = 192.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+vertical = true
+
+[node name="HostBtn" type="Button" parent="MainContainer"]
+layout_mode = 2
+text = "Host"
+
+[node name="SpaceBuffer" type="Label" parent="MainContainer"]
+layout_mode = 2
+
+[node name="JoinBtn" type="Button" parent="MainContainer"]
+layout_mode = 2
+text = "Join
+"
+
+[node name="HostContainer" type="BoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 384.0
+offset_top = 272.0
+offset_right = 768.0
+offset_bottom = 368.0
+vertical = true
+
+[node name="PortLabel" type="Label" parent="HostContainer"]
+layout_mode = 2
+text = "Your port number is: <PORT_NUMBER>
+"
+horizontal_alignment = 1
+
+[node name="SpaceBuffer2" type="Label" parent="HostContainer"]
+layout_mode = 2
+
+[node name="HostBtnSuite" type="BoxContainer" parent="HostContainer"]
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="HostContainer/HostBtnSuite"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start Game"
+
+[node name="BackBtn" type="Button" parent="HostContainer/HostBtnSuite"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Go Back"
+
+[node name="JoinContainer" type="BoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 384.0
+offset_top = 272.0
+offset_right = 768.0
+offset_bottom = 368.0
+vertical = true
+
+[node name="PortContainer" type="BoxContainer" parent="JoinContainer"]
+layout_mode = 2
+
+[node name="EnterPortLabel" type="Label" parent="JoinContainer/PortContainer"]
+layout_mode = 2
+text = "Enter the host's port number:  "
+horizontal_alignment = 1
+
+[node name="EnterPortTextEdit" type="TextEdit" parent="JoinContainer/PortContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpaceBuffer" type="Label" parent="JoinContainer"]
+layout_mode = 2
+
+[node name="JoinBtnSuite" type="BoxContainer" parent="JoinContainer"]
+layout_mode = 2
+
+[node name="JoinBtn" type="Button" parent="JoinContainer/JoinBtnSuite"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Join
+"
+
+[node name="BackBtn" type="Button" parent="JoinContainer/JoinBtnSuite"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Go Back"
+
+[node name="UpdateContainer" type="BoxContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 384.0
+offset_top = 272.0
+offset_right = 768.0
+offset_bottom = 368.0
+vertical = true
+
+[node name="UpdateLabel" type="Label" parent="UpdateContainer"]
+layout_mode = 2
+text = "Joining session..."
+horizontal_alignment = 1
+
+[node name="SpaceBuffer2" type="Label" parent="UpdateContainer"]
+layout_mode = 2
+
+[node name="BackBtn" type="Button" parent="UpdateContainer"]
+layout_mode = 2
+text = "Go Back
+"
+
+[connection signal="pressed" from="MainContainer/HostBtn" to="." method="_on_host_btn_pressed"]
+[connection signal="pressed" from="MainContainer/JoinBtn" to="." method="_on_join_btn_pressed"]
+[connection signal="pressed" from="HostContainer/HostBtnSuite/BackBtn" to="." method="_on_host_back_btn_pressed"]
+[connection signal="text_changed" from="JoinContainer/PortContainer/EnterPortTextEdit" to="." method="_on_enter_port_text_edit_text_changed"]
+[connection signal="pressed" from="JoinContainer/JoinBtnSuite/JoinBtn" to="." method="_on_join_join_btn_pressed"]
+[connection signal="pressed" from="JoinContainer/JoinBtnSuite/BackBtn" to="." method="_on_join_back_btn_pressed"]
+[connection signal="pressed" from="UpdateContainer/BackBtn" to="." method="_on_update_back_btn_pressed"]
